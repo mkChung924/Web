@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<!-- builtInFunction -->
+<body>
+
+<script type = "text/javascript">
+
+a = '100';
+b = 200;
+
+document.write('a+b=' + (a+b));
+document.write('<br>eval(a)+b=' + (eval(a)+b));
+document.write('<br>parseInt(a)+b=' + (parseInt(a)+b));
+//parseInt(데이터) : 숫자구성된 문자열 -----> 숫자변환, 소숫점이하 절삭 기능
+
+c = '3.14';
+d = 300;
+
+document.write('<br>parseInt(c)+d = ' + (parseInt(c)+d));
+document.write('<br>parseFloat(c)+d = ' + (parseFloat(c)+d));
+
+//number check : isNaN ---> if not a number, return true.
+document.write('<br>isNaN(c): ' + isNaN(c));//문자열 내의 내용이 숫자가 아닐 때 true
+document.write('<br>isNaN(d): ' + isNaN(d));//숫자가 아닐 때 true
+
+e = '12a';
+document.write('<br>isNaN(e): ' + isNaN(e));//숫자가 아닐 때 true
+
+document.write('<br>escape("@123"): '+escape('@123'));
+document.write('<br>escape("홍길동"): '+escape('홍길동'));
+document.write('<br>unescape("%uD64D%uAE38%uB3D9"): ' + unescape('%uD64D%uAE38%uB3D9'));
+</script>
+
+</body>
+</html>
