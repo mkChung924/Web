@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>js_test2</title>
+</head>
+<!-- js_test2.html -->
+<body>
+	<script>
+	
+	/* 숫자: 0인수(false) 0이 아닌수(true) 구분 
+	객채: 브라우저에서 지원되는 객체인지 아닌지 판별.
+			----> 변수에 값이 존재하는지 판단.
+			*/
+	
+		if (0) {
+			document.write("0");
+		}
+		if (12) {
+			document.write("12<br>");
+		}
+
+		/* d = new Date();
+		document.write(d); */
+
+		try {
+			if (Datea) {//현재 브라우저에서 Date 객체를 지원하는지 여부
+				document.write('Date객체 지원');
+			} else {
+				document.write('Date객체 지원 ㄴ');
+			}
+
+		} catch(e) {
+			document.write('Datea객체 지원 ㄴ');
+		}
+		
+		var str = null;
+		str='javascript';
+		
+		if(str){
+			document.write('<br>str has a value: ' + str);
+		} else {
+			document.write('<br>str has no value: ' + str);
+		}
+		
+		
+		
+	</script>
+</body>
+</html>
