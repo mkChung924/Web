@@ -15,11 +15,78 @@
 		document.write("<br>STR = " + str);
 		
 		a = 10;
-		b = 5;
+		b = 3;
 		
 		document.write('<br>'+a+'/'+b+'=' + (a/b));
+		document.write('<br>parseInt('+a+'/'+b+')=' + parseInt((a/b)));
 		document.write('<br>'+a+'%'+b+'=' + (a%b));
 		
+		c = '10';
+		d = 20;
+		
+		document.write('<br>c+d = ' + (c+d));
+		document.write('<br>parseInt(c)+d = ' + (parseInt(c)+d));
+		
+		//문제1
+		document.write('<br><br>');
+		document.write('<문제1><br>');
+		for(i=1; i<6; i++){
+			document.writeln(i);
+		}
+		
+		//문제2
+		document.write('<br>');
+		document.write('<문제2><br>');
+		for(i=5; i>0; i--){
+			document.write(i+'<br>');
+		}
+		
+		//문제3
+		document.write('<br>[');
+		document.write('<문제3><br>');
+		for(i=3; i<13; i+=3){
+			
+			if(i < 12)
+				document.write(i+',');
+			else
+				document.write(i);
+			
+		}
+		document.write(']');
+		
+		//문제4 구구단3단
+		document.write('<br>');
+		document.write('<br><문제4>');
+		for(i=1 ; i<10; i++){
+			document.write('<br>3*'+i+'='+ (3*i))
+		}
+		document.write('<br>');		
+		
+		//문제5 구구단(2~9단)
+		document.write('<hr>');
+		document.write('<br><문제5>');
+		document.write('<table border = "0" cellspacing = "0" cellpadding = "5">');
+		for(i=1; i<10; i++){
+			document.write('<tr align = "center">');
+			for(j=2; j<10; j++){
+
+				document.write('<td>'+j + '*'+ i + '='+ (j*i)+'</td>');
+			}
+			document.write('<tr>');
+		}
+		document.write('</table><br>');
+		
+		//화면에 '안녕'을 10번 출력하세요(홀수줄 빨강, 짝수줄 파랑색 출력!)
+		for(i = 1; i < 11; i++){
+			if(i%2 == 0){
+				document.write('<font color = "blue">안녕</font><br>');
+			} else {
+				document.write('<font color = "red">안녕</font><br>');
+			}
+		}
+		
+		//if문
+		document.write('<br>');
 		if(a<b){
 			document.write('<br>'+a + '가' + b + '보다 작습니다.');
 		} else if(a>b){
