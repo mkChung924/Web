@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//head 안에서 함수 정의
+	function test() {
+		alert('test function activated');
+	}
+
+	function hello() {
+		alert('Hello~!!');
+	}
+
+	function hello(name) {
+		alert('Hello, ' + name + '!');
+	}
+	
+	function hello(name,age){
+		if(name==undefined) alert('Hello~!!');
+		else if(age==undefined) alert('Hello, ' + name + '!');
+		else alert('Hello, ' + name +'!\n\nYou are ' + age + ' years old!');
+		
+	}
+</script>
+</head>
+<!-- function_test.html -->
+<body>
+	<h2>
+		<font face=Arial>Function Test</font>
+	</h2>
+	<script type="text/javascript">
+	prompt("비밀번호를 입력하시오.", "");
+	//call function
+	//test();
+	</script>
+	<input type="button" value="Call test() function" onclick="test()">
+	<input type="button" value="Call hello() function" onclick="hello()">
+	<input type="button" value="Call hello('Myung Kyu') function"
+		onclick="hello('Myung Kyu')">
+	<input type="button" value="Call hello('Myung Kyu',13) function"
+		onclick="hello('Myung Kyu',13)">
+</body>
+</html>
