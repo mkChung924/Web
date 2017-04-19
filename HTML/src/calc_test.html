@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HTML 계산기</title>
+<script type="text/javascript" src = "../js/myfun.js"></script>
+<script type="text/javascript">
+
+	function calc() {
+		//입력된 숫자 얻어오기 : document.폼이름
+	var su1Str = document.calcForm.su1.value;
+	//alert(su1);
+	var su2Str = document.calcForm.su2.value;
+	
+	//데이터 (유효성) 검사
+	if(su1Str === '' || su2Str === ''){
+		alert('두개의 수를 입력!');
+		return;
+	}
+	
+	var str = 'script';
+	
+	//2.숫자조합 : isNaN() ---> if not a number : true;
+	
+	if(isNaN(su1Str) || isNaN(su2Str)){
+		alert('숫자를 입력하세요.');
+		document.calcForm.su1.value='';
+		document.calcForm.su2.value='';
+		document.calcForm.su1.focus();
+		return;
+	}
+	
+	var su1 = parseFloat(su1Str);
+	var su2 = parseFloat(su2Str);
+	
+	var result = plus(su1, su2);
+	document.calcForm.result.value = result;
+		
+		
+	}
+</script>
+
+
+</head>
+<body>
+	<center>
+		<h3><font face = Arial>Calculator</font></h3>
+		<hr>
+		
+		<form name ="calcForm">
+			<input type="text" size=5 name="su1" maxlength="5" value=""> + 
+			<input type="text" size=5 name="su2" maxlength="5">
+			<input type="button" value="do it" onclick="calc()"> <br>
+			<br><font face = Arial>result :</font> <input type="text" size = 10 name="result" readonly>
+		</form>
+
+	</center>
+
+</body>
+</html>
