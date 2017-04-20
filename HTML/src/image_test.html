@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Image Event</title>
+
+<script type="text/javascript">
+	
+
+/* 	function largeImage(){
+		var img = document.img1;
+		img.width=800;
+		img.height=1000;
+	}
+	
+	function smallImage(){
+		var img = document.img1;
+		img.width=200;
+		img.height=250;
+	} */
+	
+/* 	function changeImageSize(size){
+		
+		var img = document.img1;
+		
+		if(size === 'L'){
+			img.width=800;
+			img.height=1000;
+		} else if(size === 'S'){
+			img.width=200;
+			img.height=250;
+		} else if(size === 'M'){
+			img.width=400;
+			img.height=500;
+		}
+		
+	} */
+	
+	
+	function init(){
+		img = document.img1;
+		
+		w1 = img.width;
+		h1 = img.height;
+
+	}
+	
+	function changeImageSize(size){
+		
+		if(size === 'L'){
+			img.width=w1*2;
+			img.height=h1*2;
+		} else if(size === 'S'){
+			img.width=w1/2;
+			img.height=h1/2;
+		} else if(size === 'M'){
+			img.width=w1;
+			img.height=h1;
+		}
+		
+	}
+	
+	var flag = true;
+	function changeImage(){
+	    
+	     if(flag){
+	    	 document.img2.src = '../image/lee.jpg';
+	    	 //alert(document.img2.src);
+	    	 
+	     } else {
+	    	 document.img2.src = '../image/won.jpg';
+	    	 
+	     }
+	     flag = !flag;
+	     
+	}
+	
+	function imageChange2(no){
+		
+		if(no === 1){
+			
+			document.img3.src = "../image/lee.jpg";
+			
+		} else if(no === 2){
+			
+			document.img3.src = "../image/wedding.jpg";
+			
+			
+		} else if(no === 3){
+			
+			document.img3.src = "../image/won.jpg";
+			
+		}
+		
+	}
+	
+
+</script>
+</head>
+<body onload=init()>
+	<!-- onload: 적재가 되었을때! 
+						body내의 엘리먼트들이 부라우저에 로딩을 끝마쳤을때!!-->
+	<h3>Image Control by javaScript</h3>
+	<hr>
+	<img alt="대체문자열" src="../image/lee.jpg" width="400" height="500"
+		name="img1">
+	<br>
+	<br>
+	<!-- 	<input type = "button" value = "크게" onclick = "largeImage()">
+	<input type = "button" value = "작게" onclick = "smallImage()">
+	<input type = "button" value = "원래대로" onclick = "largeImage()"> -->
+
+	<input type="button" value="크게" onclick="changeImageSize('L')">
+	<input type="button" value="작게" onclick="changeImageSize('S')">
+	<input type="button" value="원래대로" onclick="changeImageSize('M')">
+	<br>
+	<br>
+
+	<img alt="대체문자열" src="../image/won.jpg" width="400" height="500" name="img2" onclick="changeImage()">
+
+	<!-- 문제) 원빈 이미지를 클릭하면 이나영 이미지로 변경, 이나영 이미지를 클릭하면 원빈 이미지로 변경하는 함수 imageChange()를 정의하시오. -->
+	<br>
+	<br>
+	
+	<img alt="대체문자열" src="../image/won.jpg" width="400" height="500" name="img3" 
+	onmouseover="imageChange2(1)"
+	onmousedown="imageChange2(2)"
+	onmouseout="imageChange2(3)">
+
+	<!-- 문제) 이미지에 마우스를 올리면 이나영 이미지로 변경, 이미지를 클릭하면 웨딩사진 이미지로 변경, 이미지를 벗어나면 원빈 이미지로 변경하는 함수
+				imageChange2()를 정의하시오. -->
+	
+</body>
+</html>
