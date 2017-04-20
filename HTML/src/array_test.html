@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>배열 Array 테스트</title>
+</head>
+<body>
+	<h3>Array Test</h3>
+	<hr>
+
+	<script type="text/javascript">
+	
+	myArray = new Array(5);
+	document.write('myArray.length = '+myArray.length);
+	
+	myArray[0] = 11;
+	myArray[1] = 22;
+	myArray[2] = true;
+	myArray[3] = '정명규';
+	myArray[4] = new Date();
+	myArray[5] = '길라임';
+	myArray[6] = 3.14;
+	
+	for(i = 0; i < myArray.length; i++){
+		document.write('<br>myArray['+i+'] = '+myArray[i]);
+		
+	}
+
+	document.write('<hr>');
+	myArray2 = [11,22,true,'정명규',new Date(),'길라임','김주원',3.14,9,10];
+	document.write('myArray2.length = '+myArray2.length);
+	//document.write('<br>'+myArray2[0]);
+	
+	for(i = 0; i < myArray2.length; i++){
+		document.write('<br>myArray2['+i+'] = '+myArray2[i]);
+		
+	}
+	
+	document.write('<hr>');
+	var person = [{"name":"myung kyu", "age":"27", "job":"학생"},
+		{"name":"myung kyu2", "age":"15", "job":"학생2"},
+		{"name":"myung kyu3", "age":"18", "job":"학생3"}];
+
+	for(i = 0; i < person.length; i++){
+		document.write(person[i].name +', '+ person[i].age +', ' + person[i].job + '<br>');
+	}
+
+	document.write('<hr>');
+	
+	var p2 = {a:'동에번쩍', b:[11,22,33]};
+	document.write(p2.a + "<br>");
+	document.write(p2.b + "<br>");
+	
+	
+	document.write('<hr>');
+	
+	var myArray3 = [[1],[1,2],[1,2,3]];
+	
+	for(i = 0; i < myArray3.length; i++){
+		for(j = 0; j< myArray3[i].length; j++){
+			
+			document.write(myArray3[i][j] +" ");
+		}
+		document.write("<br>");
+	}
+	
+	document.write('<hr>');
+	
+	var myArray5 = ["사과", "딸기", "바나나", "복숭아"];
+	myArray5.pop();
+	myArray5.pop();
+	
+	myArray5.push("멜론");
+	myArray5.push("포도");
+	myArray5.push("수박", "망고");
+	
+	for(var i = 0; i < myArray5.length; i++){
+		document.write(myArray5[i] + "<br>");
+	}
+
+	document.write('<br>reverse() 함수 적용<br>');
+	myArray5.reverse();
+	
+	for(var i = 0; i < myArray5.length; i++){
+		document.write(myArray5[i] + "<br>");
+	}
+
+	document.write('<hr>');
+	
+	var now = new Date();
+	var year = now.getFullYear();
+	var month = now.getMonth() +1;
+	var dayof = now.getDate();
+	var day = now.getDay();
+	var hour = now.getHours() % 12 || 12;
+	var min = now.getMinutes();
+	var sec = now.getSeconds();
+	var date = now.getDay();
+	
+	var weekday = new Array(7);
+	weekday[0] =  "일요일";
+	weekday[1] = "월요일";
+	weekday[2] = "화요일";
+	weekday[3] = "수요일";
+	weekday[4] = "목요일";
+	weekday[5] = "금요일";
+	weekday[6] = "토요일";
+	
+	document.write(year + "년 " + month + "월 " + dayof +"일 " + hour + "시 " + min + "분 " + sec +"초 " + "("+ weekday[date] +")"); 
+	
+</script>
+
+</body>
+</html>
