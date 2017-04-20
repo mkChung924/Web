@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
+<script type="text/javascript" src = "../js/validCheck.js"></script>
 </head>
 <body>
 	<br>
@@ -10,53 +11,57 @@
 	<hr>
 	<br>
 	<center>
-	<form name="joinForm">
+	<form name="joinForm" action="welcome.html" method = "post">
 
 		<table cellspacing="0" cellpadding="10" align="center" bgcolor = "EAEAEA">
 
 			<tr>
-				<td>I D:</td>
-				<td><input type="text" name="id"> <input type="button"
-					value="중복확인"></td>
+				<td><font color = "red">*</font>I D:</td>
+				<td><input type="text" name="id"> 
+				<input type="button"value="중복확인" onclick = "dupCheck()"></td>
 			</tr>
 			<tr>
-				<td>비 번:</td>
+				<td><font color = "red">*</font>비 번:</td>
 				<td><input type="password" name="pass"></td>
 			</tr>
 			<tr>
-				<td>비번확인:</td>
+				<td><font color = "red">*</font>비번확인:</td>
 				<td><input type="password" name="pass2"></td>
 			</tr>
 			<tr>
-				<td>이 름:</td>
-				<td><input type="text"></td>
+				<td><font color = "red">*</font>이 름:</td>
+				<td><input type="text" name="name"></td>
 			</tr>
 			<tr>
-				<td>주민번호:</td>
+				<td><font color = "red">*</font>주민번호:</td>
 				<td><input type="text" name="ssn1" size="7" maxlength="6">
-					- <input type="text" name="ssn2" size="8" maxlength="7"></td>
+					- <input type="password" name="ssn2" size="8" maxlength="7"></td>
 			</tr>
 			<tr>
-				<td>전화번호:</td>
+				<td><font color = "red">*</font>전화번호:</td>
 				<td><input type="text" name="hp1" size="5"> - <input
 					type="text" name="hp2" size="5"> - <input type="text"
 					name="hp3" size="5"></td>
 			</tr>
 			<tr>
-				<td>주 소:</td>
+				<td><font color = "red">*</font>주 소:</td>
 				<td><input type="text" size="30" name="addr"></td>
 			</tr>
 			<tr>
-				<td>직 업:</td>
-				<td><select>
-						<option value="student">학생</option>
-						<option value="worker">직장인</option>
-						<option value="officer">공무원</option>
-						<option value="nojob">백수</option>
+				<td><font color = "red">*</font>직 업:</td>
+				<td><select name ='job'>
+						
+						<option value="choice">선택</option>
+						<option value="학생">학생</option>
+						<option value="직장인">직장인</option>
+						<option value="공무원">공무원</option>
+						<option value="백수">백수</option>
+						<option value="자영업">자영업</option>
+						<option value="주부">주부</option>
 				</select></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="등록" style= "width:70px">
+				<td colspan="2" align="center"><input type="button" value="등록" style= "width:70px" onclick = "validCheck()">
 					<input type="reset" value="취소" style="width:70px"></td>
 			</tr>
 
