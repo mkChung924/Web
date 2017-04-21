@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>문자열객체 테스트</h3>
+<hr>
+<script type="text/javascript">
+
+var str = 'JavaScript~!!';
+
+document.write('str문자열길이 = ' + str.length);//13
+document.write('<br>S의 인덱스 = ' + str.indexOf('S'));
+document.write('<br>s의 인덱스 = ' + str.indexOf('s'));
+document.write('<br>2의 인덱스 문자 = ' + str.charAt('2'));
+
+for(var i = 0; i < str.length; i++){
+	document.write('<br>' + i + ': ' + str.charAt(i));
+}
+document.write('<hr>');
+
+//str문자열에서 Script뽑아오기~!!
+document.write(str.substring(str.indexOf('S')));
+document.write('<br>'+str.substring(str.indexOf('S'), str.indexOf('~')));
+
+document.write('<hr>');
+var str3 = '010-9474-6430';
+var arry = str3.split('-');
+for(var i = 0; i < arry.length; i++){
+	document.write('<br>arry['+i+'] '+arry[i]);
+}
+
+</script>
+</body>
+</html>
