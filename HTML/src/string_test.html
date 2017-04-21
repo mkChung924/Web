@@ -32,6 +32,24 @@ for(var i = 0; i < arry.length; i++){
 	document.write('<br>arry['+i+'] '+arry[i]);
 }
 
+document.write('<hr>');
+document.write('<br>screen.availWidth: ' + screen.availWidth);
+document.write('<br>screen.availHeight: '+screen.availHeight);
+document.write('<br>screen.width: '+screen.width);
+document.write('<br>screen.height: '+screen.height);
+
+function changeTitle(){
+	document.title = "즐거운 금요일!";
+}
+
+document.write('<br>URL정보(location): ' + document.location);
+document.linkColor = "red";
+document.vlinkColor = "orange";
+
 </script>
+
+<button onclick = "changeTitle()">제목바꿔</button>
+<br><a href = "http://naver.com">이동</a>
+<br><button onClick = "document.clear()">지우기</button>
 </body>
 </html>
