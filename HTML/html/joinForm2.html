@@ -13,6 +13,12 @@
 		}
 	}
 	
+	function dupCheck(){
+		
+		window.open('dupcheck.html', 'child','toolbar = yes, location = no, status = no, menubar = no,' +
+				'scrollbars = no, resizable = no, width = 450, height = 180, top = 200, left=1000');
+	}
+	
 </script>
 </head>
 <body>
@@ -27,7 +33,7 @@
 
 			<tr>
 				<td><font color = "red">*</font>I D:</td>
-				<td><input type="text" name="id"> 
+				<td><input type="text" name="id" readonly="readonly" onclick="dupCheck()"> 
 				<input type="button"value="중복확인" onclick = "dupCheck()"></td>
 			</tr>
 			<tr>
