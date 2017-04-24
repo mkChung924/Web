@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	
+	var ids = ["wjdaudrb7", "mkchung924", "hahahaho"];
+	
+	function dupCheck(){
+		
+		var id = document.idCheckForm.user_id.value;
+				
+		if(id === ''){
+			alert("id를 입력하세요.")
+		} else {
+			
+			for(var i = 0; i < ids.length; i++){
+				if(ids[i] === id){
+					alert("동일한 아이디가 존재합니다.");
+					document.idCheckForm.user_id.value = '';
+					document.idCheckForm.user_id.focus();
+					break;
+					
+				} else {
+					alert("사용가능한 아이디입니다.");
+					if(confirm('사용하시겠습니까?')){
+						opener.joinForm.id.value = id;
+						window.close();
+					} else {
+						break;
+					}
+				}
+			}
+		}
+		
+	}
+
+</script>
+</head>
+<body>
+<h3>중복 아이디 체크</h3>
+<center>
+<form name = "idCheckForm">
+ID: <input type="text" name = "user_id"> <input type = "button" onclick = dupCheck() value = "중복확인">
+</form>
+</center>
+
+</body>
+</html>
