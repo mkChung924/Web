@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+		//자식창에서 부모창 레퍼런스하기: opener
+		//window.opener는 parent window!
+		
+		function initForm(){
+
+			var name = opener.document.parentForm.username.value;
+			//alert(name);
+			document.childForm.username.value = name;
+		}
+		
+		function toName(){
+			opener.document.parentForm.username.value = document.childForm.username.value;
+		}
+
+	
+	</script>
+</head>
+<body onload="initForm()">
+	<h3>Child Window</h3>
+	<hr>
+	<form name="childForm">
+		부모창의 텍스트: <input type="text" name="username">
+	</form>
+	<br>
+	<button onclick = "init()">이름얻기(from 부모창)</button>
+	<br>
+	<button onclick = "toName()">이름보내(to 부모창)</button>
+
+</body>
+</html>
