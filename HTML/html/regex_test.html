@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<!-- 	RegularExpression : 정규식(정규표현식)
+	
+	var str = '    script   ';
+		srt = str.replace(/(^\s+)|(/s+$)/g, ''); -->
+<body>
+	<h3>RegExp테스트</h3>
+	<hr>
+	<script type="text/javascript">
+
+	var str = 'java12';
+	
+	//패턴검사!(데이터 검사 - 문자, 숫자, 길이)
+	
+	//횟수관련 부호: ?(0,1), *(0~무한대), +(1~무한대)
+	
+	//영문검사
+	var regExp1 = /^[a-z]$/;	//regExp1: RegExp 객체!
+	document.write("영문검사: " + regExp1.test(str));
+	
+	var str2 = '12345';
+	
+	//숫자검사
+	var regExp2 = new RegExp('^[\\d]+$','g');
+	document.write("<br>숫자검사: " + regExp2.test(str2))
+	
+	//주민번호 검사
+	var juminPattern1 = new RegExp('^[\\d]{6}$','g');
+	var juminPattern2 = new RegExp('^[\\d]{7}$','g');
+	var jumin1='910924';
+	var jumin2='1199040';
+	
+	document.write("<br>주민번호 앞자리: " + juminPattern1.test(jumin1));
+	document.write("<br>주민번호 뒷자리: " + juminPattern2.test(jumin2));
+	
+	//아이디검사(8~12자리, 영문자와 숫자조합, 영문자시작)
+	var str5 = 'javaaaaaaa12';
+	var idPattern = new RegExp('^[a-zA-Z][a-zA-Z0-9]{7,11}$','g');
+	
+	document.write("<br>아이디 체크: " + idPattern.test(str5));
+	
+	//비밀번호 검사(5자리, 영문과 숫자와 특수문자(!@#$*)의 조합)
+	var passPattern = new RegExp('^(?=.*[a-zA-Z\d].*)[a-zA-Z\d!@#$%&*]{5,}$','g');
+    var passPattern = /^[]$/;
+	var pass = 'jav@a123';
+	document.write("<br>비밀번호 검사: " + passPattern.test(pass));
+
+</script>
+
+
+
+</body>
+</html>
