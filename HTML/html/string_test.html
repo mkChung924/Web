@@ -38,6 +38,14 @@ document.write('<br>screen.availHeight: '+screen.availHeight);
 document.write('<br>screen.width: '+screen.width);
 document.write('<br>screen.height: '+screen.height);
 
+document.write('<hr>');
+a = 'javascript          ';
+document.write('<br>'+a.length);
+b = a.replace(/^\s+|\s+$/g, ''); 
+document.write('<br>['+a+']<br>');
+document.write('<br>'+b.length);
+document.write('<br>['+b+']<br>');
+
 function changeTitle(){
 	document.title = "즐거운 금요일!";
 }
@@ -51,5 +59,7 @@ document.vlinkColor = "orange";
 <button onclick = "changeTitle()">제목바꿔</button>
 <br><a href = "http://naver.com">이동</a>
 <br><button onClick = "document.clear()">지우기</button>
+
+<hr>
 </body>
 </html>
