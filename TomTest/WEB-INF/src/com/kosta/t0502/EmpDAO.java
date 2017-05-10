@@ -41,7 +41,6 @@ public class EmpDAO {
 	public void connect(){
 		try {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/orcl","scott2","tiger");
-			System.out.println("DB연결 성공!");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
