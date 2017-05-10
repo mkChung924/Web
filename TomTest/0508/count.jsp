@@ -6,16 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<!-- /0508/count.jsp -->
 <body>
-<% for(int i=0; i < 5; i++){ %>
-	<font color='blue' size='10'>안녕, JSP!!</font></br>
-	<% } %>
+	<h3>조회수 출력</h3>
+	<hr>
+	<%! 
+	int count; 
+	%>
 	
-	<%
-	
-	int su1 = 3;
-	int su2 = 10;
-	System.out.println("su1+su2 = " + (su1+su2));
-	 %>
+	<% 
+	if(session.isNew()){ //클라이언트가 (TomTest서비스) 새 접속을 하였을 때
+		count++;
+	}
+	%>
+	조회수: <%= count %>회
 </body>
 </html>

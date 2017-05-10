@@ -6,16 +6,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<!-- /0508/gugudan.jsp -->
 <body>
-<% for(int i=0; i < 5; i++){ %>
-	<font color='blue' size='10'>안녕, JSP!!</font></br>
-	<% } %>
-	
+<center>
+<h3>구구단 출력</h3>
+<hr>
+
+<table border=1 cellspacing=0 cellpadding=10>
+
 	<%
 	
-	int su1 = 3;
-	int su2 = 10;
-	System.out.println("su1+su2 = " + (su1+su2));
-	 %>
+	for(int i = 1; i < 10; i++){
+		%><tr><%
+		for(int j = 2; j < 10; j++){
+			
+			%><td><% out.print(j+"*"+i+" = " + (j*i)); %></td>
+			
+		<%}%></tr>
+	<%}
+	
+	%>
+
+</table>
+
+<h3>구구단 2</h3>
+<hr>
+
+</center>
 </body>
 </html>
