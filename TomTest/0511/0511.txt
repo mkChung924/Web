@@ -1,23 +1,175 @@
-<세션 로그인, 장바구니>
-login.jsp	--> 로그인 화면 (사용자 이름만 입력)
-selProduct.jsp --> 상품을 선택하는 화면 (추가 버튼 클릭)
-add.jsp	--> 선택한 상품에 대해 세션에 추가
-checkOut.jsp	--> 선택한 상품에 대한 세션 해제
 
-======================================================
+<세션 장바구니>
+login.jsp        --> 로그인 화면 (사용자 이름만 입력)        
+selProduct.jsp --> 상품을 선택하는 화면 (추가버튼 클릭) 
+add.jsp         --> 선택한 상품에 대해 세션에 추가
+checkOut.jsp  --> 선택한 상품에 대한 상품목록 보이기
+
+
+===============================================================================
 <세션 로그인>
-sessionT1.jsp	--> 로그인 화면
-sessionT2.jsp	--> 로그인 체크
-sessionT3.jsp	--> 서비스 화면
-sessionT4.jsp	--> 로그아웃
+sessionT1.jsp  --> 로그인 화면
+sessionT2.jsp  --> 로그인 체크
+sessionT3.jsp  --> 서비스 화면
+sessionT4.jsp  --> 로그아웃
 
-========================================================
-* JSP액션(Action)
-	- JSP페이지간 흐름 제어
-	- 자바애플릿 지원
-	- 자바빈즈 컴포넌트와 JSP상호작용지원
-	
+1. sessionT2.jsp
+   ---> 로그인 화면을 통해 전달된 아이디와 비번을 Map(DB)와 비교검사
+          ---> 아이디가 존재하지 않거나 비번이 일치하지 않을시 로그인화면으로 이동
+   ---> 로그인 성공시 세션을 부여(세션로그인)
+   
+2. sessionT3.jsp
+   ---> 정상적이지 않은 경로(로그인 거치지 않은 상태에서 바로 sessionT3.jsp페이지호출)를 
+             통해 접근했을 시 로그인화면으로 이동
+
+3. sessionT4.jsp
+   ---> 세션해제 실행   
+===============================================================================
+<JSP>
+- Java Server Page
+
+JSP페이지 : HTML+JAVA
+----> 서비스: Tomcat내에서 서블릿으로 변환후 서비스
+
+<%! 멤버   %>
+<%  메소드  %>
+<%= 데이터   %>
+<%-- 설명 --%>
+
+directive
+<%@page   속성명="속성값"     %> : 현재 페이지 속성지정
+<%@include      %>      : 다른 페이지를 포함
+<%@taglib        %>     : 외부태그를 참조하라는 지정
+
+영역객체)
+   PageContext pageContext
+   HttpServletRequest request
+   HttpSession session
+   ServletContext application
+
+  ----> 데이터저장,검색,삭제
+   setAttribute(String key,Object value);
+   removeAttribute(key);
+   getAttribute(key);
+==============================================================  
+<JavaScript와 Java>
+
+
+===================== hello.jsp =======================================
+
+<html>
+  <head>
+  </head>
+  <body>
+
+    <%
+       int sum=50;
+       String name="gildong";
+       out.print("안녕하세요");
+    %>
+    
+    <script>
+     //자바스크립트(클라이언트 스크립트)  -----> 브라우저에서 실행
+     var str="홍길동";
+     document.write(str);
+     document.write(<%=sum%>);  (O)
+     document.write(<%=name%>);  (X)
+     document.write('<%=name%>');  (O)
+    </script>
+
+    <%
+     //자바코드(서버 스크립트)    ------> 서버(JVM)에서 실행
+      int su=13;
+      out.print(su);
+
+      out.print(str); (X)  -----> 서버가 먼저 실행된 후 위의 자바스크립트가 실행되므로
+      String h = "안녕";
+    %>
+
+    <input type='text' value="<%=h%>" name=name>    
+
+  </body>
+</html> 	
+===========================================================================
+※ JSP액션(Action)
+  - JSP페이지간 흐름 제어
+  - 자바애플릿 지원
+  - 자바빈즈 컴포넌트와 JSP상호작용지원
+  
 액션종류)
-1. include : 다른 페이지를 현재 페이지에 포함시킨다.
-형식
-<jsp:include></jsp:include>
+  1. include : 다른 페이지를 현재 페이지에 포함시킨다.
+     형식)
+     <jsp:include page="포함될 페이지경로"/>
+        
+  2. forward : 현재페이지의 제어를 다른 페이지로 전달.
+                 (페이지이동)
+    형식)
+      <jsp:forward page="이동할 페이지경로"/>
+    
+  
+  3. useBean : 클래스객체를 생성하고 사용할 범위를 지정.
+    형식)
+        <jsp:useBean  class='pack.A'  id="obj" scope="page"/>
+      pack.A obj = new pack.A();      
+      
+      
+      <jsp:useBean  class='pack.A'  id="obj" scope="request"/>
+      
+      A obj;
+      if(request영역에 obj라는 A클래스 객체가 없다면){
+        obj = new A();
+      }else{
+        obj = request.getAttribute("obj");
+      }
+
+    영역 scope속성) 
+      scope="page" (기본값)
+         - 현 페이지에서만 객체 사용
+      scope="request"
+         - request호출 관계에 있는 페이지간의 객체 공유
+           (forward를 통한 페이지 이동을 했을 경우)
+      scope="session"
+         - 동일브라우저(같은 세션간의)내에 표시되는 페이지간의 객체 공유
+      scope="application"
+         - ServletContext application(톰켓서버)
+         - 동일 서버내에서 서비스되어지는 페이지간의 객체 공유
+         
+     ----> 객체표현: 영역객체
+      1. PageContext pageContext
+      2. HttpRequest request
+      3. HttpSession  session
+      4. ServletContext application
+     ----> 공통점 : 영역내에 데이터를 저장, 삭제, 수정
+     
+      공통메소드)
+         setAttribute(String key, Object value); 
+         getAttribute(String key);
+         removeAttribute(String key); 
+      
+         
+  
+  4. setProperty : useBean의 세터메소드 호출.
+    <jsp:setProperty name="useBean에서 사용한 id" 
+                     property="속성명" value="데이터" />
+  
+  5. getProperty : useBean의 게터메소드 호출.
+    <jsp:getProperty name="useBean에서 사용한 id" 
+                     property="속성명" />
+                     
+    예) <jsp:useBean class="test.Person" id="p"/>
+           ------> test.Person p = new test.Person();
+        <jsp:setProperty name="p" property="age" value="13"/>  
+           ------>   p.setAge(Integer.parseInt("13"));               
+        <jsp:getProperty name="p" property="age"/>    
+           ------>   out.print(p.getAge());
+           
+       
+   
+   
+   
+
+
+
+
+
+
