@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="guest">
+
+	<typeAlias alias="guest" type="com.kosta.guest.dto.Guest"/>
+
+	<select id="select" resultClass="guest">
+		select id, name, tel, contents, to_char(gdate,'yyyy-mm-dd hh24:mi:ss') gdate from guest order by gdate desc
+	</select>
+	
+	<insert id="insert" parameterClass="guest">
+		insert into guest values(guest_seq.nextval, #name#, #pass#, #email#, #tel#, #contents#, sysdate)
+	</insert>
+	
+	<update id="update" parameterClass="guest">
+		update guest set name=#name#, tel=#tel#, contents=#contents#, email=#email#, gdate=sysdate where pass=#pass# and id=#id#
+	</update>
+	
+	<delete id="delete" parameterClass="String">
+		delete from Guest where id= #id#
+	</delete>
+	
+	<select id="selectOne" parameterClass="String" resultClass="guest">
+		select id, name, pass, email, tel, contents, to_char(gdate,'yyyy-mm-dd hh24:mi:ss') gdate from guest where id= #id#
+	</select>
+	
+	<select id="passCheck" parameterClass="String" resultClass="String">
+		select pass from guest where id=#id#
+	</select>
+	
+	<!-- 1페이지 출력(10건) -->
+	<select id="selectPage2" resultClass="guest"><![CDATA[
+		select id, name, tel, contents, gdate from (select id, name, tel, contents, gdate from guest order by id desc)
+		where rownum >= 1 and rownum <= 10
+		]]>
+	</select>
+	
+	<!-- 2페이지 출력(10건) -->
+	<select id="selectPage" resultClass="guest" parameterClass="java.util.Map"><![CDATA[
+		select id, name, tel, contents, gdate
+		from (select id, name, tel, contents, gdate, rownum rn from (select id, name, tel, contents, gdate from guest order by id desc))
+		where rn between #min# and #max#
+		]]>
+	</select>
+	
+	<select id="count" resultClass="int">
+		select count(*) from guest
+	</select>
+
+
+</sqlMap>
